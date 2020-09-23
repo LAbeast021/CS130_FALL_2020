@@ -2,8 +2,9 @@
 // First Laboratory Assignment - Bitwise Operation Calculator
 // ____________________________________________________________
 
-#include<iostream>
+#include <iostream>
 #include <iomanip>
+#include <limits>
 using namespace std;
 
 int main(){
@@ -47,36 +48,72 @@ int main(){
                         case '&' :
                             cout << "Enter values for first and second operand:" << endl;
                             cin >> operand_1 >> operand_2;
+                            if(cin.fail()) {
+                                cin.clear();
+                                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                                cout << "Input error, enter choice and values again." <<endl;
+                                break;
+                            }
                             cout << "Result:" <<(operand_1 & operand_2) << " [Hexadecimal:" << hex << (operand_1 & operand_2) <<"]" << endl;
                             break;
                             
                         case '|' :
                             cout << "Enter values for first and second operand: " << endl;
                             cin >> operand_1 >> operand_2;
+                            if(cin.fail()) {
+                                cin.clear();
+                                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                                cout << "Input error, enter choice and values again." <<endl;
+                                break;
+                            }
                             cout << "Result:"<< (operand_1 | operand_2) << " [Hexadecimal:"<< hex << (operand_1 | operand_2) <<"]" << endl;
                             break;
 
                         case '^' :
                             cout << "Enter values for first and second operand:" << endl;
                             cin >> operand_1 >> operand_2;
+                            if(cin.fail()) {
+                                cin.clear();
+                                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                                cout << "Input error, enter choice and values again." <<endl;
+                                break;
+                            }
                             cout << "Result:" << (operand_1 ^ operand_2) <<" [Hexadecimal:" << hex <<(operand_1 ^ operand_2) <<"]" << endl;
                             break;
 
                         case '~' :
                             cout << "Enter value for operand:" << endl;
                             cin >> operand_1;
+                            if(cin.fail()) {
+                                cin.clear();
+                                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                                cout << "Input error, enter choice and values again." <<endl;
+                                break;
+                            }
                             cout << "Result:" << (~operand_1) << " [Hexadecimal:" << hex << (~operand_1) << "]" << endl;
                             break;
 
                         case '-' :
                             cout << "Enter value for operand:" << endl;
                             cin >> operand_1;
+                            if(cin.fail()) {
+                                cin.clear();
+                                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                                cout << "Input error, enter choice and values again." <<endl;
+                                break;
+                            }
                             cout << "Result:"<<(-operand_1) << " [Hexadecimal:" << hex << (-operand_1) <<"]" << endl;
                             break;
 
                         case '<' :
                             cout << "Enter values for first and second operand" << endl;
                             cin >> operand_1 >> operand_2;
+                            if(cin.fail()) {
+                                cin.clear();
+                                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                                cout << "Input error, enter choice and values again." <<endl;
+                                break;
+                            }
                             if(operand_2 > sizeof(operand_1) * 8 ){
                                 cout << "Shift operand (" << operand_2 << ") bannot exceed number of bits  (" << sizeof(operand_1) * 8 << ")  - setting result to zero." << endl;
                                 cout << "Result: 0 [Hexadecimal: 0]" << endl ;
@@ -88,6 +125,12 @@ int main(){
                         case '>' :
                             cout << "Enter values for first and second operand" << endl;
                             cin >> operand_1 >> operand_2;
+                            if(cin.fail()) {
+                                cin.clear();
+                                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                                cout << "Input error, enter choice and values again." <<endl;
+                                break;
+                            }
                             if(operand_2 > sizeof(operand_1) * 8){
                                 cout << "Shift operand ("<< operand_2 <<") bannot exceed number of bits  (" << sizeof(operand_1) * 8 << ")  - setting result to zero." << endl;
                                 cout << "Result: 0 [Hexadecimal: 0]" << endl ;
